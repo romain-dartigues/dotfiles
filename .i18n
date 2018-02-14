@@ -1,0 +1,7 @@
+#!/bin/sh
+# Non-standard, sourced by: /etc/profile.d/lang.sh on RH
+
+export LANG=en_US.utf8
+export LC_COLLATE=fr_FR.utf8
+export LC_CTYPE=$LANG
+export LC_TIME=en_DK.UTF-8
