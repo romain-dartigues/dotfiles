@@ -40,3 +40,8 @@ def binary_prefix(value, binary=True):
 			break
 		value/= unit
 	return value, (SI[i:i+1], SI[i:i+1].upper() + 'i')[binary]
+
+
+def fraction_of(numerator, denominator):
+	fraction = __import__('fractions').Fraction(numerator, denominator)
+	return fraction._numerator, fraction._denominator
