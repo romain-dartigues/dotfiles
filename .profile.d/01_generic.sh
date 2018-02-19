@@ -42,7 +42,8 @@ export HISTSIZE=1000
 export HISTFILESIZE=
 export HISTTIMEFORMAT='%FT%T '
 
-export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+isin "history -a" "$PROMPT_COMMAND" ||
+	export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 export CLICOLOR=true
 
