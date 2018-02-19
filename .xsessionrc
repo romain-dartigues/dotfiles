@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export GVFS_DISABLE_FUSE=1
+# or? gconftool-2 --type Boolean --set /apps/nautilus/preferences/media_automount false
