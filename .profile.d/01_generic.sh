@@ -17,6 +17,15 @@ gte() {
 	[ "$1" = "$(printf "%s\n%s" "$1" "$2" | sort -rV | head -n1)" ]
 }
 
+# save mode, ownership (canonical, numeric), mtime
+save_attributes() {
+       find "$@" -printf '%04m\0%u\0%g\0%U\0%G\0%TFT%TT\0%p\0'
+}
+
+restore_attributes() {
+       xargs -0 -n7 sh -c '[ -L "$5" ] || chmod $0 "$6";chown -h $3:$4 "$6";touch -md $5 "$6"'
+}
+
 
 
 
