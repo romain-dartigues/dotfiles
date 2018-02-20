@@ -1,6 +1,3 @@
-.??*
+*~
 *.py?
-!.*ignore
-!.git?*
-/_build
-/docs/_build
+*.sw?
