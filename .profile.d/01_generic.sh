@@ -76,6 +76,8 @@ export VISUAL=vim EDITOR=vim
 [ -f "${HOME}/.config/pythonrc.py" ] &&
 	export PYTHONSTARTUP="${HOME}/.config/pythonrc.py"
 
+export TZ="/usr/share/zoneinfo/Europe/Paris"
+
 unset -v MAILCHECK
 
 
