@@ -54,14 +54,6 @@ PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 [ -e "${HOME}/.local/bin" ] && PATH="${HOME}/.local/bin:${PATH}"
 export PATH
 
-export HISTCONTROL=ignoredups:erasedups
-export HISTSIZE=1000
-export HISTFILESIZE=
-export HISTTIMEFORMAT='%FT%T '
-
-isin "history -a" "$PROMPT_COMMAND" ||
-	export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-
 export CLICOLOR=true
 
 export LESS='-c -i -M -R'
@@ -69,8 +61,7 @@ export LESSHISTFILE='-'
 
 export LS_OPTIONS='-F -b -T 0 --color=auto'
 export LS_COLORS=$LS_COLORS:'di=0;36'
-export PS1='\u@\h:\W\$ '
-export TREE_CHARSET=utf8
+export PS1='$ '
 export VISUAL=vim EDITOR=vim
 
 [ -f "${HOME}/.config/pythonrc.py" ] &&

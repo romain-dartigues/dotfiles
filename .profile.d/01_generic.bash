@@ -5,7 +5,30 @@
 if [ -n "$BASH" ]
 then
 
+# options ####################################################################
+
 shopt -s histappend
+
+
+
+# functions ##################################################################
+
+
+
+# variables ##################################################################
+
+export HISTCONTROL='ignoredups:erasedups'
+export HISTSIZE=1000
+export HISTFILESIZE=
+export HISTTIMEFORMAT='%FT%T '
+
+command -v isin >&- 2>&- && ! isin 'history -a' "$PROMPT_COMMAND" &&
+export PROMPT_COMMAND="history -a;${PROMPT_COMMAND}"
+
+
+
+## colours ###################################################################
+# escape sequences supported by the terminal: infocmp(1)
 
 export LESS_TERMCAP_mb=$'\e[1;31m'        # blink
 export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # bold
