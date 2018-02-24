@@ -14,7 +14,7 @@ isin() {
 
 # return true if $1 is greater or equal to $2
 gte() {
-	[ "$1" = "$(printf "%s\n%s" "$1" "$2" | sort -rV | head -n1)" ]
+	[ "$1" = "$(printf '%s\n%s' "$1" "$2" | sort -rV | head -n1)" ]
 }
 
 # save mode, ownership (canonical, numeric), mtime
@@ -60,12 +60,13 @@ export LESS='-c -i -M -R'
 export LESSHISTFILE='-'
 
 export LS_OPTIONS='-F -b -T 0 --color=auto'
-export LS_COLORS=$LS_COLORS:'di=0;36'
+isin 'di=0;36' "$LS_COLORS" ||
+export LS_COLORS="${LS_COLORS}:di=0;36"
 export PS1='$ '
-export VISUAL=vim EDITOR=vim
+export VISUAL='vim' EDITOR='vim'
 
 [ -f "${HOME}/.config/pythonrc.py" ] &&
-	export PYTHONSTARTUP="${HOME}/.config/pythonrc.py"
+export PYTHONSTARTUP="${HOME}/.config/pythonrc.py"
 
 export TZ="/usr/share/zoneinfo/Europe/Paris"
 
@@ -75,7 +76,8 @@ unset -v MAILCHECK
 
 
 
+
 ##############################################################################
 
 command -v keychain >&- 2>&- &&
-	eval $(keychain --eval --quick --quiet --ignore-missing id_ecdsa id_ed25519 id_rsa)
+eval $(keychain --eval --quick --quiet --ignore-missing id_ecdsa id_ed25519 id_rsa)
