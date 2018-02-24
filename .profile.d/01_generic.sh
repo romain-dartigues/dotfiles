@@ -68,6 +68,7 @@ export LESS='-c -i -M -R'
 export LESSHISTFILE='-'
 
 export LS_OPTIONS='-F -b -T 0 --color=auto'
+export LS_COLORS=$LS_COLORS:'di=0;36'
 export PS1='\u@\h:\W\$ '
 export TREE_CHARSET=utf8
 export VISUAL=vim EDITOR=vim
