@@ -15,6 +15,7 @@
 	pager = true
 [core]
 	editor = vim
+	pager = LESS=iFR less
 [difftool]
 	prompt = no
 [log]
