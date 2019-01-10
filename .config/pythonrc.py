@@ -13,6 +13,9 @@ else:
 	import rlcompleter
 	readline.parse_and_bind("tab: complete")
 
+if sys.version_info[0] == 3:
+	from importlib import reload
+
 
 
 
