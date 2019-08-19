@@ -3,6 +3,7 @@
 	lola = log --all --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d %Cgreen(%ai)%Creset %s %C(dim)<%an>%Creset' --abbrev-commit
 	lolc = log --all --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d %Cgreen(%ci)%Creset %s %C(dim)<%an>%Creset' --abbrev-commit
 	lolt = log --all --graph --simplify-by-decoration --decorate --pretty=oneline --abbrev-commit
+	br = "!(git branch -v|sed -r 's/(.) ([^ ]*)(.*)/\\2\\1 \\3/'&&git config --get-regexp ^branch.*description|sed -r 's/^branch\\.([^ ]*)\\.description /\\1# /')|sort -h"
 	fix = !git rebase -i HEAD^^
 	backup = !git branch backup/$(date +%F/%H-%M-%S)
 	PUSH = !git remote | xargs -r -L1 git push --all
