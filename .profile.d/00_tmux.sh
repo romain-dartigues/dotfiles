@@ -4,7 +4,7 @@ if command -v tmux >&- && [ -z "$TMUX" ]
 then
 	ID="$(tmux ls 2>&- | sed -rn '/attached/!{s/:.*//p;q}')"
 	if [ -z "$ID" ]; then
-		if [ -z "$TMUX" -a ! -z "$WINDOWID" ]; then
+		if [ -z "$TMUX" ]; then
 			exec tmux -2
 		fi
 	else
