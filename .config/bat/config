@@ -1,0 +1,3 @@
+--pager 'less -n -L -Q -R -X -F'
+--theme TwoDark
+--style=plain
