@@ -34,3 +34,7 @@
 	default = simple
 [user]
 	name = Romain Dartigues
+
+# https://git-scm.com/docs/git-config
+[fetch]
+	writeCommitGraph = true
