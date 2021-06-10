@@ -1,16 +1,20 @@
 [alias]
+	aliases = !"git config --get-regexp '^alias\\.' | sed 's/^alias.//;s/ / = /'"
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --all --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d %Cgreen(%ai)%Creset %s %C(dim)<%an>%Creset' --abbrev-commit
 	lolc = log --all --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d %Cgreen(%ci)%Creset %s %C(dim)<%an>%Creset' --abbrev-commit
 	lolt = log --all --graph --simplify-by-decoration --decorate --pretty=oneline --abbrev-commit
 	be = branch --edit-description
 	br = !"f(){(git branch -v \"${@}\"|sed -r 's/(.) ([^ ]*)(.*)/\\2\\1 \\3/'&&git config --get-regexp ^branch.*description|sed -r '/^$/d;s/^branch\\.([^ ]*)\\.description /\\1# /')|sort -h;};f"
+	churn = !"f() { git log --all --find-copies --find-renames --name-only --format='format:' \"$@\" | awk 'NF{a[$0]++}END{for(i in a){print a[i], i}}' | sort -n;};f"
 	grep-all = !"f(){ git rev-list --all|xargs -r git grep \"$@\";};f"
 	fix = !"f(){ git rebase --autostash -i \"${@:-HEAD^^}\";};f"
 	backup = !git branch backup/$(date +%F/%H-%M-%S)
 	push-all = !git remote | xargs -r -L1 git push --all
 	large-files = !"f(){ git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | sed -n 's/^blob //p' | sort --numeric-sort --key=2 | cut -c 1-12,41- | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest;};f"
 	st = !"git status ."
+	ignored = ls-files . --ignored --exclude-standard --others
+	untracked = ls-files . --exclude-standard --others
 [color]
 	diff = auto
 	status = auto
