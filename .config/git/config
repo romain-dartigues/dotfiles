@@ -23,6 +23,7 @@
 	ui = true
 	pager = true
 [core]
+	commitGraph = true
 	editor = vim
 [difftool]
 	prompt = no
